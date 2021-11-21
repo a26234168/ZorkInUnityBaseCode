@@ -7,5 +7,5 @@ H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.csproj.C
 H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.csproj.Fody.CopyLocal.cache
 H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.dll
 H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.pdb
-H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.csproj.AssemblyReference.cache
 H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.GeneratedMSBuildEditorConfig.editorconfig
+H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.csproj.AssemblyReference.cache

@@ -15,10 +15,15 @@ namespace Zork
         public World World { get; private set; }
 
         public string StartingLocation { get; set; }
-        
+
         public string WelcomeMessage { get; set; }
-        
+
         public string ExitMessage { get; set; }
+
+
+        
+
+        
 
         [JsonIgnore]
         public Player Player { get; private set; }
@@ -80,11 +85,14 @@ namespace Zork
             if (foundCommand != null)
             {
                 foundCommand.Action(this);
+                Player.Moves++;
             }
             else
             {
                 Output.WriteLine("Unknown command.");
+
             }
+                
         }
 
         private static void Move(Game game, Directions direction)
@@ -96,6 +104,14 @@ namespace Zork
         }
 
         public static void Look(Game game) => game.Output.WriteLine(game.Player.Location.Description);
+
+       
+
+
+            
+        
+
+
 
         private static void Quit(Game game) => game.IsRunning = false;
 
