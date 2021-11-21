@@ -1,5 +1,6 @@
 using UnityEngine;
 using Zork.Common;
+using TMPro;
 
 public class UnityOutputService : MonoBehaviour, IOutputService
 {
@@ -10,4 +11,7 @@ public class UnityOutputService : MonoBehaviour, IOutputService
     public void WriteLine(object value)
     {
     }
+
+
+   
 }

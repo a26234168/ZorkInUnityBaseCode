@@ -40,9 +40,7 @@ namespace Zork
 
                 }
 
-
-
-                output.WriteLine(string.IsNullOrWhiteSpace(game.ExitMessage) ? "Thank you for playing!" : game.ExitMessage);
+              //  output.WriteLine(string.IsNullOrWhiteSpace(game.ExitMessage) ? "Thank you for playing!" : game.ExitMessage);
 
 
             }
@@ -51,7 +49,7 @@ namespace Zork
 
         private static void Player_LocationChanged (object sender, Room e)
         {
-            System.Console.WriteLine($"You moved to{e.Name}");
+            System.Console.WriteLine($"You moved to {e.Name}");
         }
         private enum CommandLineArguments
         {

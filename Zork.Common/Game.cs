@@ -105,14 +105,6 @@ namespace Zork
 
         public static void Look(Game game) => game.Output.WriteLine(game.Player.Location.Description);
 
-       
-
-
-            
-        
-
-
-
         private static void Quit(Game game) => game.IsRunning = false;
 
         [OnDeserialized]

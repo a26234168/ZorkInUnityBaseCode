@@ -37,13 +37,14 @@ public class GameManager : MonoBehaviour
 
         _game.Start(InputService, OutputService);
 
+        _game.Commands["LOOK"].Action(_game);
+
         _game.Player.LocationChanged += Player_LocationChanged;
 
         _game.Player.MovesChanged += Player_MovesChanged;
 
         _game.Player.ScoreChanged += Player_ScoreChanged;
 
-        _game.Commands["South"].Action(_game);
 
         
 

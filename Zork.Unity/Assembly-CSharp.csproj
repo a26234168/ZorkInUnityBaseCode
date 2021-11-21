@@ -53,10 +53,10 @@
     <UnityVersion>2021.1.28f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\GameManager.cs" />
-    <Compile Include="Assets\Script\UnityInputService.cs" />
     <Compile Include="Assets\Script\UnityOutputService.cs" />
     <Compile Include="Assets\Script\IOputService.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\UnityInputService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
