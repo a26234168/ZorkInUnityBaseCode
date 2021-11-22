@@ -46,7 +46,9 @@ public class GameManager : MonoBehaviour
         _game.Player.ScoreChanged += Player_ScoreChanged;
 
 
-        
+
+
+
 
     }
 
@@ -67,6 +69,6 @@ public class GameManager : MonoBehaviour
 
 
     private Game _game;
-    
+
 }
 

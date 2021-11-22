@@ -20,11 +20,6 @@ namespace Zork
 
         public string ExitMessage { get; set; }
 
-
-        
-
-        
-
         [JsonIgnore]
         public Player Player { get; private set; }
 

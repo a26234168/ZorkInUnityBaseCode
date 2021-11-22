@@ -54,7 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\UnityOutputService.cs" />
-    <Compile Include="Assets\Script\IOputService.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\UnityInputService.cs" />
   </ItemGroup>

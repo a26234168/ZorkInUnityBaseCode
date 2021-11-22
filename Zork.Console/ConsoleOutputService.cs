@@ -14,5 +14,17 @@ namespace Zork
         {
             Console.WriteLine(value);
         }
+        public void Write(string value)
+        {
+            Console.Write(value);
+        }
+        public void Writeline(string value)
+        {
+            Console.WriteLine(value);
+        }
+
+        public void Clear()
+        {
+        }
     }
 }
