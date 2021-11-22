@@ -10,13 +10,6 @@ using System.Collections.Generic;
 
 public class UnityOutputService : MonoBehaviour, IOutputService
 {
-
-    [SerializeField]
-    private TextMeshProUGUI TextLinePrefab;
-
-    [SerializeField]
-    private Image NewLinePrefab;
-
     [SerializeField]
     private int MaxEnteries = 60;
 
@@ -24,13 +17,20 @@ public class UnityOutputService : MonoBehaviour, IOutputService
     private Transform OutputTextContainer;
 
 
+    [SerializeField]
+    private TextMeshProUGUI TextLinePrefab;
+
+    [SerializeField]
+    private Image NewLinePrefab;
+
+
     public UnityOutputService() => mEntries = new List<GameObject>();
 
-    public void clear() => mEntries.ForEach(entry => Destroy(entry));
+    public void Clear() => mEntries.ForEach(entry => Destroy(entry));
 
     public void Write(string value) => ParseAndWriteLine(value);
 
-    public void Writeline(string value) => ParseAndWriteLine(value);
+    public void WriteLine(string value) => ParseAndWriteLine(value);
 
     private void ParseAndWriteLine(string value)
     {
@@ -57,15 +57,15 @@ public class UnityOutputService : MonoBehaviour, IOutputService
     }
     private void WriteNewLine()
     {
-        var newline = GameObject.Instantiate(NewLinePrefab);
+        var newline = Instantiate(NewLinePrefab);
         newline.transform.SetParent(OutputTextContainer, false);
         mEntries.Add(newline.gameObject);
     }
 
 
-    public void WriteTextLine(string value)
+    private void WriteTextLine(string value)
     {
-        var textLine = GameObject.Instantiate(TextLinePrefab);
+        var textLine = Instantiate(TextLinePrefab);
         textLine.transform.SetParent(OutputTextContainer, false);
         textLine.text = value;
         mEntries.Add(textLine.gameObject);

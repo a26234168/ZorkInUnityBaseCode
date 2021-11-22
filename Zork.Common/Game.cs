@@ -62,6 +62,8 @@ namespace Zork
 
             IsRunning = true;
 
+
+
         }
 
 
@@ -81,6 +83,7 @@ namespace Zork
             {
                 foundCommand.Action(this);
                 Player.Moves++;
+
             }
             else
             {
@@ -98,7 +101,7 @@ namespace Zork
             }
         }
 
-        public static void Look(Game game) => game.Output.WriteLine(game.Player.Location.Description);
+        public static void Look(Game game) => game.Output.WriteLine($"{game.Player.Location}\n{game.Player.Location.Description}");
 
         private static void Quit(Game game) => game.IsRunning = false;
 
