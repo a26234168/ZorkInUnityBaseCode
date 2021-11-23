@@ -8,3 +8,4 @@ H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.csproj.F
 H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.dll
 H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.pdb
 H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.GeneratedMSBuildEditorConfig.editorconfig
+H:\ZorkInUnityBaseCode\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.csproj.AssemblyReference.cache

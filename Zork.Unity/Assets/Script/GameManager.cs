@@ -56,10 +56,10 @@ public class GameManager : MonoBehaviour
         private void Player_LocationChanged(object sender, Room newLocation)
     {
         _game.Output.WriteLine($"You moved to {newLocation}");
+
         LocationText.text = newLocation.ToString();
+
         _game.Output.WriteLine($"{newLocation}\n{newLocation.Description}");
-
-
 
 
     }
