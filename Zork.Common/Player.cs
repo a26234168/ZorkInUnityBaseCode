@@ -81,6 +81,8 @@ namespace Zork
 
             return isValidMove;
         }
+
+
         private Room _location;
         private int _moves;
         private int _score;

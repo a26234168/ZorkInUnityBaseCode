@@ -34,7 +34,10 @@ public class GameManager : MonoBehaviour
     {
         TextAsset gameTextAsset = Resources.Load<TextAsset>(ZorkGameFileAssetName);
         _game = JsonConvert.DeserializeObject<Game>(gameTextAsset.text);
+        _game.GameStopped += _game_GameStopped;
 
+
+        
         _game.Start(InputService, OutputService);
 
         _game.Commands["LOOK"].Action(_game);
@@ -48,13 +51,27 @@ public class GameManager : MonoBehaviour
 
 
 
+     
 
 
     }
 
-    private void Player_LocationChanged(object sender, Room newLocation)
+    private void _game_GameStopped(object sender, EventArgs e)
+    {
+        if (_game.IsRunning == false)
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+    }
+
+
+        private void Player_LocationChanged(object sender, Room newLocation)
     {
         LocationText.text = newLocation.ToString();
+        _game.Output.WriteLine($"{newLocation}\n{newLocation.Description}");
+
+
+
     }
 
     private void Player_MovesChanged(object sender, int newmoves)

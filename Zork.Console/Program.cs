@@ -40,10 +40,11 @@ namespace Zork
 
                 }
 
-              //  output.WriteLine(string.IsNullOrWhiteSpace(game.ExitMessage) ? "Thank you for playing!" : game.ExitMessage);
 
 
             }
+            output.WriteLine(string.IsNullOrWhiteSpace(game.ExitMessage) ? "Thank you for playing!" : game.ExitMessage);
+
         }
 
 

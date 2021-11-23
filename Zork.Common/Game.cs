@@ -6,13 +6,18 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Zork.Common;
 
+
 namespace Zork
 {
     public class Game : INotifyPropertyChanged
     {
+        private Game command;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public World World { get; private set; }
+
+        public event EventHandler GameStopped;
 
         public string StartingLocation { get; set; }
 
@@ -21,7 +26,7 @@ namespace Zork
         public string ExitMessage { get; set; }
 
         [JsonIgnore]
-        public Player Player { get; private set; }
+        public Player Player { get; set; }
 
         public bool IsRunning { get; set; }
         [JsonIgnore]
@@ -47,11 +52,16 @@ namespace Zork
                 { "SOUTH", new Command("SOUTH", new string[] { "SOUTH", "S" }, game => Move(game, Directions.South)) },
                 { "EAST", new Command("EAST", new string[] { "EAST", "E"}, game => Move(game, Directions.East)) },
                 { "WEST", new Command("WEST", new string[] { "WEST", "W" }, game => Move(game, Directions.West)) },
+                { "REWARD", new Command("REWARD", new string[] { "REWARD", "R",  }, AddReward) },
+                { "SCORE", new Command("RSCORE", new string[] { "SCORE" }, AskScore) },
+
+
             };
         }
 
         public void Start(IInputService input, IOutputService output)
         {
+
             Assert.IsNotNull(output);
             Output = output;
 
@@ -59,8 +69,8 @@ namespace Zork
             Input = input;
             Input.InputReceived += InputReceivedHandler;
 
-
             IsRunning = true;
+            Output.WriteLine($"{WelcomeMessage}");
 
 
 
@@ -79,11 +89,12 @@ namespace Zork
                 }
             }
 
+            
             if (foundCommand != null)
             {
                 foundCommand.Action(this);
                 Player.Moves++;
-
+                
             }
             else
             {
@@ -95,17 +106,37 @@ namespace Zork
 
         private static void Move(Game game, Directions direction)
         {
+            //game.Output.WriteLine($"{game.Player.Location}\n{game.Player.Location.Description}");
+
             if (game.Player.Move(direction) == false)
             {
                 game.Output.WriteLine("The way is shut!");
             }
+
         }
 
         public static void Look(Game game) => game.Output.WriteLine($"{game.Player.Location}\n{game.Player.Location.Description}");
 
-        private static void Quit(Game game) => game.IsRunning = false;
+        private static void Quit(Game game)
+        {
+            game.IsRunning = false;
+            game.Output.WriteLine($"{game.ExitMessage}");
+            game.GameStopped?.Invoke(game, EventArgs.Empty);
+            
+        }
 
+        public static void AddReward(Game game)
+        {
+            game.Player.Score++;
+            game.Output.WriteLine("One point added!");
+        }
+        public static void AskScore(Game game)
+        {
+            game.Output.WriteLine($"Your score would be {game.Player.Score} point(s) in {game.Player.Moves} move(s)");
+        }
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context) => Player = new Player(World, StartingLocation);
     } 
+
+
 }
