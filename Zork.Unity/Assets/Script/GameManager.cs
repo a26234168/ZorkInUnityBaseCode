@@ -13,30 +13,25 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI MovesText;
-    [SerializeField]
 
+    [SerializeField]
     private TextMeshProUGUI ScoreText;
-    [SerializeField]
 
+    [SerializeField]
     private TextMeshProUGUI LocationText;
+
     [SerializeField]
-
-
     private UnityInputService InputService;
 
     [SerializeField]
-
     private UnityOutputService OutputService;
-
-
 
     void Start()
     {
         TextAsset gameTextAsset = Resources.Load<TextAsset>(ZorkGameFileAssetName);
         _game = JsonConvert.DeserializeObject<Game>(gameTextAsset.text);
+
         _game.GameStopped += _game_GameStopped;
-
-
         
         _game.Start(InputService, OutputService);
 
@@ -47,13 +42,6 @@ public class GameManager : MonoBehaviour
         _game.Player.MovesChanged += Player_MovesChanged;
 
         _game.Player.ScoreChanged += Player_ScoreChanged;
-
-
-
-
-     
-
-
     }
 
     private void _game_GameStopped(object sender, EventArgs e)
@@ -85,7 +73,6 @@ public class GameManager : MonoBehaviour
     {
         ScoreText.text = newscore.ToString();
     }
-
 
     private Game _game;
 

@@ -72,8 +72,6 @@ namespace Zork
             IsRunning = true;
             Output.WriteLine($"{WelcomeMessage}");
 
-
-
         }
 
 
@@ -93,8 +91,7 @@ namespace Zork
             if (foundCommand != null)
             {
                 foundCommand.Action(this);
-                Player.Moves++;
-                
+                Player.Moves++;             
             }
             else
             {
@@ -106,7 +103,6 @@ namespace Zork
 
         private static void Move(Game game, Directions direction)
         {
-            //game.Output.WriteLine($"{game.Player.Location}\n{game.Player.Location.Description}");
 
             if (game.Player.Move(direction) == false)
             {
