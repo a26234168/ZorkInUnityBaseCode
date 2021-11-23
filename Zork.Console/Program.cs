@@ -17,7 +17,6 @@ namespace Zork
             ConsoleOutputService output = new ConsoleOutputService();
             ConsoleIntputService input = new ConsoleIntputService();
 
-            output.WriteLine(string.IsNullOrWhiteSpace(game.WelcomeMessage) ? "Welcome to Zork!" : game.WelcomeMessage);
 
             game.Player.LocationChanged += Player_LocationChanged;
             game.Start(input, output);
@@ -28,7 +27,6 @@ namespace Zork
             {
 
                 {
-                    output.WriteLine(game.Player.Location);
                     if (previousRoom != game.Player.Location)
                     {
                         Game.Look(game);
